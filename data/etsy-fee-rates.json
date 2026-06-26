@@ -1,0 +1,107 @@
+{
+  "updated": "2026-06-26",
+  "sourceNotes": [
+    "Transaction fee: Etsy Fees & Payments Policy",
+    "Payment processing fee: Etsy Help payment processing fees table",
+    "Offsite Ads: Etsy Help Offsite Ads guide",
+    "Regulatory operating fee: Etsy Help regulatory operating fee table"
+  ],
+  "rates": {
+    "us": {
+      "label": "United States",
+      "currency": "USD",
+      "symbol": "$",
+      "listingFlat": 0.2,
+      "transactionRate": 0.065,
+      "processingRate": 0.03,
+      "processingFlat": 0.25,
+      "regulatoryRate": 0,
+      "processingBaseIncludesTax": true,
+      "transactionBaseIncludesTax": false
+    },
+    "uk": {
+      "label": "United Kingdom",
+      "currency": "GBP",
+      "symbol": "GBP ",
+      "listingFlat": 0.2,
+      "transactionRate": 0.065,
+      "processingRate": 0.04,
+      "processingFlat": 0.2,
+      "regulatoryRate": 0.0048,
+      "processingBaseIncludesTax": true,
+      "transactionBaseIncludesTax": false
+    },
+    "ca": {
+      "label": "Canada domestic / US buyer",
+      "currency": "CAD",
+      "symbol": "C$",
+      "listingFlat": 0.2,
+      "transactionRate": 0.065,
+      "processingRate": 0.03,
+      "processingFlat": 0.25,
+      "regulatoryRate": 0.005,
+      "processingBaseIncludesTax": true,
+      "transactionBaseIncludesTax": false
+    },
+    "au": {
+      "label": "Australia domestic",
+      "currency": "AUD",
+      "symbol": "A$",
+      "listingFlat": 0.2,
+      "transactionRate": 0.065,
+      "processingRate": 0.03,
+      "processingFlat": 0.25,
+      "regulatoryRate": 0,
+      "processingBaseIncludesTax": true,
+      "transactionBaseIncludesTax": false
+    },
+    "de": {
+      "label": "Germany",
+      "currency": "EUR",
+      "symbol": "EUR ",
+      "listingFlat": 0.2,
+      "transactionRate": 0.065,
+      "processingRate": 0.04,
+      "processingFlat": 0.3,
+      "regulatoryRate": 0,
+      "processingBaseIncludesTax": true,
+      "transactionBaseIncludesTax": false
+    },
+    "fr": {
+      "label": "France",
+      "currency": "EUR",
+      "symbol": "EUR ",
+      "listingFlat": 0.2,
+      "transactionRate": 0.065,
+      "processingRate": 0.04,
+      "processingFlat": 0.3,
+      "regulatoryRate": 0.0114,
+      "processingBaseIncludesTax": true,
+      "transactionBaseIncludesTax": false
+    },
+    "it": {
+      "label": "Italy",
+      "currency": "EUR",
+      "symbol": "EUR ",
+      "listingFlat": 0.2,
+      "transactionRate": 0.065,
+      "processingRate": 0.04,
+      "processingFlat": 0.3,
+      "regulatoryRate": 0.008,
+      "processingBaseIncludesTax": true,
+      "transactionBaseIncludesTax": false
+    },
+    "es": {
+      "label": "Spain",
+      "currency": "EUR",
+      "symbol": "EUR ",
+      "listingFlat": 0.2,
+      "transactionRate": 0.065,
+      "processingRate": 0.04,
+      "processingFlat": 0.3,
+      "regulatoryRate": 0.0088,
+      "processingBaseIncludesTax": true,
+      "transactionBaseIncludesTax": false
+    }
+  }
+}

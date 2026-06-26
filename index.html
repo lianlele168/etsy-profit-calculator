@@ -1,0 +1,329 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Etsy Fee & Profit Calculator With Offsite Ads</title>
+  <meta name="description" content="Free Etsy fee and profit calculator with offsite ads, payment processing, shipping, costs, and target-margin price recommendations.">
+  <link rel="canonical" href="https://example.com/etsy-fee-calculator/">
+  <link rel="stylesheet" href="styles.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "name": "Etsy Fee & Profit Calculator",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Any",
+        "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
+        "description": "Estimate Etsy selling fees, payment processing, offsite ads, costs, net profit, and target-margin pricing."
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How much does Etsy take per sale?",
+            "acceptedAnswer": {"@type": "Answer", "text": "Etsy commonly charges a listing fee, a 6.5% transaction fee on the order amount, and an Etsy Payments processing fee that varies by seller country. Offsite Ads can add 12% or 15% when a sale is attributed to an offsite ad."}
+          },
+          {
+            "@type": "Question",
+            "name": "Does Etsy charge fees on shipping?",
+            "acceptedAnswer": {"@type": "Answer", "text": "Yes. Etsy's transaction fee applies to the item price plus shipping and gift wrapping amounts charged to the buyer. Payment processing fees are also assessed on the payment amount."}
+          }
+        ]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://example.com/"},
+          {"@type": "ListItem", "position": 2, "name": "Etsy Fee Calculator", "item": "https://example.com/etsy-fee-calculator/"}
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="MarginDesk home">
+      <span class="brand-mark">M</span>
+      <span>MarginDesk</span>
+    </a>
+    <nav aria-label="Primary navigation">
+      <a href="#calculator">Calculator</a>
+      <a href="#breakdown">Fee breakdown</a>
+      <a href="#guide">Guide</a>
+      <a href="blog/index.html">Blog</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">Etsy seller profit tool</p>
+        <h1>Etsy Fee & Profit Calculator</h1>
+        <p>Start with profit, then inspect every fee. Model Offsite Ads, shipping, costs, and target-margin pricing in one seller worksheet.</p>
+        <div class="hero-actions">
+          <a class="button-link" href="#calculator">Calculate profit</a>
+          <a class="text-link" href="#breakdown">Review fee lines</a>
+        </div>
+      </div>
+      <aside class="hero-panel" aria-label="Key features">
+        <div><strong>Offsite Ads</strong><span>12% / 15% risk mode</span></div>
+        <div><strong>Reverse pricing</strong><span>Hit a target margin</span></div>
+        <div><strong>Shipping compare</strong><span>Free shipping scenarios</span></div>
+        <div><strong>Country rates</strong><span>US, UK, CA, AU, DE, FR, IT, ES</span></div>
+      </aside>
+    </section>
+
+    <section id="calculator" class="calculator-band">
+      <div class="calculator-shell">
+        <form id="calculator-form" class="input-panel">
+          <div class="panel-heading">
+            <p class="eyebrow">Inputs</p>
+            <h2>Model one Etsy order</h2>
+            <p class="hint">Leave optional fields blank or use 0 when they do not apply.</p>
+          </div>
+
+          <section class="mode-group span-2" aria-labelledby="seller-mode-heading">
+            <div>
+              <p class="eyebrow">Seller mode</p>
+              <h3 id="seller-mode-heading">Choose the workflow that matches this product</h3>
+            </div>
+            <div class="mode-toggle" role="group" aria-label="Seller mode">
+              <label>
+                <input type="radio" name="seller-mode" value="standard" checked>
+                <span><strong>Standard</strong><small>You make, stock, or ship it</small></span>
+              </label>
+              <label>
+                <input type="radio" name="seller-mode" value="pod">
+                <span><strong>POD</strong><small>Print provider produces or fulfills it</small></span>
+              </label>
+            </div>
+            <p id="seller-mode-note" class="hint">Use Standard for handmade, vintage, digital, or stocked products.</p>
+          </section>
+
+          <section class="field-group span-2" aria-labelledby="fee-profile-heading">
+            <div class="group-heading">
+              <span>1</span>
+              <h3 id="fee-profile-heading">Fee profile</h3>
+            </div>
+            <div class="field">
+              <label for="seller-location">Seller location / fee profile</label>
+              <select id="seller-location" name="seller-location"></select>
+              <p class="hint" id="rate-summary">Rates loading...</p>
+            </div>
+          </section>
+
+          <section class="field-group" aria-labelledby="sale-details-heading">
+            <div class="group-heading">
+              <span>2</span>
+              <h3 id="sale-details-heading">Sale details</h3>
+            </div>
+            <div class="field">
+              <label for="price">Item price</label>
+              <div class="money-field"><span data-currency-symbol>$</span><input id="price" type="number" min="0" step="0.01" value="24.99" placeholder="0.00"></div>
+            </div>
+            <div class="field">
+              <label for="quantity">Quantity sold</label>
+              <input id="quantity" type="number" min="1" step="1" value="1" placeholder="1">
+            </div>
+            <div class="field">
+              <label for="shipping-charged">Shipping charged to buyer</label>
+              <div class="money-field"><span data-currency-symbol>$</span><input id="shipping-charged" type="number" min="0" step="0.01" value="4.99" placeholder="0.00"></div>
+              <p class="hint">Use 0 for free shipping or digital products.</p>
+            </div>
+            <div class="field">
+              <label for="discount">Discount / coupon <span class="optional">optional</span></label>
+              <div class="money-field"><span data-currency-symbol>$</span><input id="discount" type="number" min="0" step="0.01" value="0" placeholder="0.00"></div>
+            </div>
+          </section>
+
+          <section class="field-group" aria-labelledby="costs-heading">
+            <div class="group-heading">
+              <span>3</span>
+              <h3 id="costs-heading">Costs</h3>
+            </div>
+            <p class="hint group-note" data-pod-only>For POD products, use product cost for the provider's base production cost and shipping cost for fulfillment shipping.</p>
+            <div class="field">
+              <label for="product-cost"><span data-mode-label="product-cost">Product cost per item</span></label>
+              <div class="money-field"><span data-currency-symbol>$</span><input id="product-cost" type="number" min="0" step="0.01" value="7.50" placeholder="0.00"></div>
+              <p class="hint" data-mode-label="product-cost-hint">Use the material, purchase, or production cost you pay for each item.</p>
+            </div>
+            <div class="field">
+              <label for="shipping-cost"><span data-mode-label="shipping-cost">Your actual shipping cost</span></label>
+              <div class="money-field"><span data-currency-symbol>$</span><input id="shipping-cost" type="number" min="0" step="0.01" value="4.25" placeholder="0.00"></div>
+            </div>
+            <div class="field" data-pod-only>
+              <label for="pod-extra-cost">Extra POD cost <span class="optional">optional</span></label>
+              <div class="money-field"><span data-currency-symbol>$</span><input id="pod-extra-cost" type="number" min="0" step="0.01" value="0" placeholder="0.00"></div>
+              <p class="hint">Use for design licensing, packaging, sample amortization, or provider add-ons.</p>
+            </div>
+            <div class="field">
+              <label for="tax-collected">Sales tax / VAT collected <span class="optional">optional</span></label>
+              <div class="money-field"><span data-currency-symbol>$</span><input id="tax-collected" type="number" min="0" step="0.01" value="0" placeholder="0.00"></div>
+            </div>
+            <div class="field">
+              <label for="etsy-ads">Manual Etsy Ads cost <span class="optional">optional</span></label>
+              <div class="money-field"><span data-currency-symbol>$</span><input id="etsy-ads" type="number" min="0" step="0.01" value="0" placeholder="0.00"></div>
+            </div>
+          </section>
+
+          <section class="field-group span-2" aria-labelledby="pricing-risk-heading">
+            <div class="group-heading">
+              <span>4</span>
+              <h3 id="pricing-risk-heading">Ads risk and target price</h3>
+            </div>
+            <fieldset class="switch-field">
+              <legend>Offsite Ads</legend>
+              <label class="switch-row">
+                <input id="offsite-enabled" type="checkbox">
+                <span>Include Offsite Ads fee for this sale</span>
+              </label>
+              <div class="segmented" role="group" aria-label="Offsite Ads rate">
+                <label><input type="radio" name="offsite-rate" value="0.15" checked><span>15%</span></label>
+                <label><input type="radio" name="offsite-rate" value="0.12"><span>12%</span></label>
+              </div>
+              <p class="hint">Use this as a stress test for attributed offsite ad orders.</p>
+            </fieldset>
+            <div id="reverse-pricing" class="field">
+              <label for="target-margin">Target profit margin</label>
+              <div class="range-row">
+                <input id="target-margin" type="range" min="5" max="70" step="1" value="35">
+                <output id="target-margin-output" for="target-margin">35%</output>
+              </div>
+            </div>
+          </section>
+        </form>
+
+        <section class="result-panel" aria-live="polite">
+          <p class="eyebrow">Result</p>
+          <div class="profit-hero">
+            <span id="profit-label">Estimated net profit</span>
+            <strong id="net-profit">$0.00</strong>
+            <em id="profit-status">Calculating...</em>
+          </div>
+
+          <div class="metric-grid">
+            <div><span>Margin</span><strong id="profit-margin">0%</strong></div>
+            <div><span>Total Etsy fees</span><strong id="total-fees">$0.00</strong></div>
+            <div><span>Total costs</span><strong id="total-costs">$0.00</strong></div>
+            <div><span>Order revenue</span><strong id="order-revenue">$0.00</strong></div>
+          </div>
+
+          <div class="recommendation">
+            <span>Suggested item price for target margin</span>
+            <strong id="suggested-price">$0.00</strong>
+            <p id="suggested-note">Based on current costs, shipping, selected fee profile, and target margin.</p>
+          </div>
+
+          <button id="copy-summary" type="button">Copy calculation summary</button>
+          <p id="copy-status" class="copy-status" role="status"></p>
+        </section>
+
+        <article id="breakdown" class="table-card">
+          <div class="panel-heading">
+            <p class="eyebrow">Fee breakdown</p>
+            <h2>Every fee, line by line</h2>
+          </div>
+          <table>
+            <thead>
+              <tr><th>Line item</th><th>Formula</th><th>Amount</th></tr>
+            </thead>
+            <tbody id="fee-breakdown"></tbody>
+          </table>
+        </article>
+
+        <aside class="compare-card">
+          <p class="eyebrow">Shipping scenarios</p>
+          <h2>Free shipping comparison</h2>
+          <div class="compare-row">
+            <span>Current setup</span>
+            <strong id="current-profit">$0.00</strong>
+          </div>
+          <div class="compare-row">
+            <span>Roll shipping into item price</span>
+            <strong id="rolled-profit">$0.00</strong>
+          </div>
+          <div class="compare-row">
+            <span>Seller absorbs shipping</span>
+            <strong id="absorbed-profit">$0.00</strong>
+          </div>
+          <p class="hint">Rolling shipping into the item price keeps the buyer total similar. Absorbing shipping lowers buyer total and usually lowers profit.</p>
+        </aside>
+      </div>
+    </section>
+
+    <section id="guide" class="guide-grid">
+      <article>
+        <h2>How this Etsy fee calculator works</h2>
+        <p>The calculator starts with buyer-paid revenue, subtracts Etsy fees, then subtracts your product, shipping, and ad costs. It is designed to answer the practical seller question: "Will this order actually make money?"</p>
+        <h3>Core Etsy fees included</h3>
+        <p>It includes the listing fee, Etsy's transaction fee, Etsy Payments processing fee, optional Offsite Ads, optional Etsy Ads cost, and region-specific regulatory operating fee when configured.</p>
+      </article>
+      <article>
+        <h2>Why Offsite Ads matter</h2>
+        <p>Offsite Ads can turn a profitable-looking product into a loss when the margin is thin. The switch lets you model the sale both with and without the attributed ad fee before you commit to a price.</p>
+        <h3>Use target-margin pricing</h3>
+        <p>If your margin is too low, use the target-margin slider. It estimates the item price needed to cover the selected fee profile, costs, shipping settings, and advertising risk.</p>
+      </article>
+    </section>
+
+    <section class="source-band">
+      <div>
+        <p class="eyebrow">Rate sources</p>
+        <h2>Fee rates should be checked before publishing</h2>
+        <p>This tool uses publicly documented Etsy fee rules as of June 26, 2026. Listing fees are modeled as a quick estimate because Etsy may convert USD-based fees for non-USD sellers. Always re-check rates before relying on the calculator for business decisions.</p>
+      </div>
+      <ul>
+        <li><a href="https://www.etsy.com/legal/fees/" rel="noopener">Etsy Fees & Payments Policy</a></li>
+        <li><a href="https://help.etsy.com/hc/en-us/articles/115015628847-What-are-Payment-Processing-Fees-for-Selling-on-Etsy" rel="noopener">Etsy payment processing fees</a></li>
+        <li><a href="https://help.etsy.com/hc/en-us/articles/360000338367-How-Etsy-s-Offsite-Ads-Work" rel="noopener">Etsy Offsite Ads guide</a></li>
+        <li><a href="https://help.etsy.com/hc/en-us/articles/1500011073202-What-is-a-Regulatory-Operating-Fee" rel="noopener">Etsy regulatory operating fee</a></li>
+      </ul>
+    </section>
+
+    <section class="disclaimer-band" aria-labelledby="estimate-disclaimer-heading">
+      <p class="eyebrow">Estimate disclaimer</p>
+      <h2 id="estimate-disclaimer-heading">Use this as a planning estimate, not an accounting record</h2>
+      <p>MarginDesk models common Etsy seller fees so you can pressure-test pricing before listing or repricing a product. Actual charges may differ because Etsy can apply currency conversion, tax/VAT/GST handling, international payment processing rates, refunds, shipping label charges, subscription fees, listing renewals, or other account-specific adjustments.</p>
+      <p>For final bookkeeping, tax filing, or dispute decisions, compare the result with your Etsy Payment account, Etsy's current fee pages, and advice from a qualified accountant or tax professional.</p>
+    </section>
+
+    <section class="faq-band">
+      <h2>Etsy fee calculator FAQ</h2>
+      <details>
+        <summary>Is this calculator affiliated with Etsy?</summary>
+        <p>No. MarginDesk is an independent educational tool and is not endorsed by Etsy, Inc.</p>
+      </details>
+      <details>
+        <summary>Does Etsy charge transaction fees on shipping?</summary>
+        <p>Yes. Etsy's transaction fee applies to the order amount that includes the item price and shipping charged to the buyer.</p>
+      </details>
+      <details>
+        <summary>Why can my profit be negative?</summary>
+        <p>Low-priced products can be squeezed by fixed fees, production cost, shipping cost, and Offsite Ads. Negative profit means the modeled order loses money after the selected costs and fees.</p>
+      </details>
+      <details>
+        <summary>Should I include taxes?</summary>
+        <p>The tax field is included because payment processing can be assessed on the payment amount. Tax rules vary by country, so treat this as an estimate rather than tax advice.</p>
+      </details>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; 2026 MarginDesk. Etsy is a trademark of Etsy, Inc. This site is not endorsed by Etsy.</p>
+    <nav aria-label="Footer navigation">
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </footer>
+
+  <script src="fee-engine.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
