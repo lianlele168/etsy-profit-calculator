@@ -37,6 +37,7 @@ Primary page angle:
 - [x] Expand `How Much Does Etsy Take Per Sale?`
 - [x] Expand `Etsy Offsite Ads Fee Explained`
 - [x] Expand `Etsy Fees on Shipping`
+- [x] Expand `Etsy Free Shipping vs Paid Shipping`
 - [ ] Expand blog posts with original examples and screenshots
 - [ ] Add full country fee table
 - [x] Add regulatory operating fee details for current supported country profiles
