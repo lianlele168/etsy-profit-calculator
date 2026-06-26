@@ -38,6 +38,7 @@ Primary page angle:
 - [x] Expand `Etsy Offsite Ads Fee Explained`
 - [x] Expand `Etsy Fees on Shipping`
 - [x] Expand `Etsy Free Shipping vs Paid Shipping`
+- [x] Expand `Etsy POD Profit Calculator Guide`
 - [ ] Expand blog posts with original examples and screenshots
 - [ ] Add full country fee table
 - [x] Add regulatory operating fee details for current supported country profiles
