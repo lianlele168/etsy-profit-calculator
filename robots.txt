@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://example.com/sitemap.xml
+Sitemap: https://etsy-profit-calculator-6ms.pages.dev/sitemap.xml
