@@ -36,6 +36,7 @@ Primary page angle:
 - [x] Initial content cluster
 - [x] Expand `How Much Does Etsy Take Per Sale?`
 - [x] Expand `Etsy Offsite Ads Fee Explained`
+- [x] Expand `Etsy Fees on Shipping`
 - [ ] Expand blog posts with original examples and screenshots
 - [ ] Add full country fee table
 - [x] Add regulatory operating fee details for current supported country profiles
