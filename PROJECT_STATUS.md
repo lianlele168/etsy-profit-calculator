@@ -35,6 +35,7 @@ Primary page angle:
 - [x] FAQ section
 - [x] Initial content cluster
 - [x] Expand `How Much Does Etsy Take Per Sale?`
+- [x] Expand `Etsy Offsite Ads Fee Explained`
 - [ ] Expand blog posts with original examples and screenshots
 - [ ] Add full country fee table
 - [x] Add regulatory operating fee details for current supported country profiles
@@ -80,6 +81,6 @@ Primary page angle:
 - [x] Replace `https://example.com` with production Pages URL
 - [x] Replace `hello@example.com` with monitored inbox
 - [x] Re-check Etsy fee rates from official sources
-- [ ] Add Search Console verification
+- [x] Add Search Console verification
 - [ ] Add analytics only after privacy review
 - [ ] Add AdSense only after content expansion
